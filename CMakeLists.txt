@@ -12,16 +12,6 @@ project(
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
-# ---- Declare internal libraries ----
-
-add_library(cmake_init_lib OBJECT src/lib.cpp)
-
-target_include_directories(
-  cmake_init_lib ${warning_guard}
-  PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>")
-
-target_compile_features(cmake_init_lib PUBLIC cxx_std_17)
-
 # ---- Declare external libraries ----
 
 add_subdirectory(external/drogon)
@@ -35,7 +25,6 @@ set_property(TARGET cmake_init_exe PROPERTY OUTPUT_NAME cmake_init)
 
 target_compile_features(cmake_init_exe PRIVATE cxx_std_17)
 
-target_link_libraries(cmake_init_exe PRIVATE cmake_init_lib)
 target_link_libraries(cmake_init_exe PRIVATE drogon)
 
 # ---- Install rules ----
