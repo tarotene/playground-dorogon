@@ -13,6 +13,13 @@ cmake -S . -B build -D CMAKE_BUILD_TYPE=Release
 cmake --build build
 ```
 
+> One may want `compile_commands.json` to effectively develop with VSCode or some clangd-aware IDEs. In such case, below script is much better:
+>
+> ```sh
+> cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D CMAKE_EXPORT_COMPILE_COMMANDS=ON
+> cmake --build build
+> ```
+
 Here are the steps for building in release mode with a multi-configuration
 generator, like the Visual Studio ones:
 
@@ -20,6 +27,13 @@ generator, like the Visual Studio ones:
 cmake -S . -B build
 cmake --build build --config Release
 ```
+
+> In case `compile_commands.json` is needed:
+> >
+> ```sh
+> cmake -S . -B build -D CMAKE_EXPORT_COMPILE_COMMANDS=ON
+> cmake --build build --config Release
+> ```
 
 ### Building with MSVC
 
