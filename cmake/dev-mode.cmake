@@ -7,10 +7,10 @@ endif()
 
 add_custom_target(
     run-exe
-    COMMAND cmake_init_exe
+    COMMAND drogon_init_exe
     VERBATIM
 )
-add_dependencies(run-exe cmake_init_exe)
+add_dependencies(run-exe drogon_init_exe)
 
 option(BUILD_MCSS_DOCS "Build documentation using Doxygen and m.css" OFF)
 if(BUILD_MCSS_DOCS)

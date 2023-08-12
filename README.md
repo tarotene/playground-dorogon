@@ -1,6 +1,6 @@
-# cmake_init
+# drogon_init
 
-This is the cmake_init project.
+This is the drogon_init project.
 
 ## Building and installing
 

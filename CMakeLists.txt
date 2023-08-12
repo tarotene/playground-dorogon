@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.14)
 include(cmake/prelude.cmake)
 
 project(
-  cmake_init
+  drogon_init
   VERSION 0.1.0
-  DESCRIPTION "Short description"
+  DESCRIPTION "Simple playground on drogon"
   HOMEPAGE_URL "https://example.com/"
   LANGUAGES CXX)
 
@@ -18,14 +18,14 @@ add_subdirectory(external/drogon)
 
 # ---- Declare executable ----
 
-add_executable(cmake_init_exe src/main.cpp)
-add_executable(cmake_init::exe ALIAS cmake_init_exe)
+add_executable(drogon_init_exe src/main.cpp)
+add_executable(drogon_init::exe ALIAS drogon_init_exe)
 
-set_property(TARGET cmake_init_exe PROPERTY OUTPUT_NAME cmake_init)
+set_property(TARGET drogon_init_exe PROPERTY OUTPUT_NAME drogon_init)
 
-target_compile_features(cmake_init_exe PRIVATE cxx_std_17)
+target_compile_features(drogon_init_exe PRIVATE cxx_std_17)
 
-target_link_libraries(cmake_init_exe PRIVATE drogon)
+target_link_libraries(drogon_init_exe PRIVATE drogon)
 
 # ---- Install rules ----
 
@@ -35,11 +35,11 @@ endif()
 
 # ---- Developer mode ----
 
-if(NOT cmake_init_DEVELOPER_MODE)
+if(NOT drogon_init_DEVELOPER_MODE)
   return()
 elseif(NOT PROJECT_IS_TOP_LEVEL)
   message(
-    AUTHOR_WARNING "Developer mode is intended for developers of cmake_init")
+    AUTHOR_WARNING "Developer mode is intended for developers of drogon_init")
 endif()
 
 include(cmake/dev-mode.cmake)

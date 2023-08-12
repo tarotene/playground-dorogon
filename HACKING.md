@@ -137,7 +137,7 @@ fix them respectively. Customization available using the `FORMAT_PATTERNS` and
 
 #### `run-exe`
 
-Runs the executable target `cmake_init_exe`.
+Runs the executable target `drogon_init_exe`.
 
 #### `spell-check` and `spell-fix`
 
