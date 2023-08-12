@@ -2,15 +2,15 @@
 
 This is the cmake_init project.
 
-# Building and installing
+## Building and installing
 
 See the [BUILDING](BUILDING.md) document.
 
-# Contributing
+## Contributing
 
 See the [CONTRIBUTING](CONTRIBUTING.md) document.
 
-# Licensing
+## Licensing
 
 <!--
 Please go to https://choosealicense.com/licenses/ and choose a license that
