@@ -3,28 +3,22 @@ cmake_minimum_required(VERSION 3.14)
 include(cmake/prelude.cmake)
 
 project(
-    cmake_init
-    VERSION 0.1.0
-    DESCRIPTION "Short description"
-    HOMEPAGE_URL "https://example.com/"
-    LANGUAGES CXX
-)
+  cmake_init
+  VERSION 0.1.0
+  DESCRIPTION "Short description"
+  HOMEPAGE_URL "https://example.com/"
+  LANGUAGES CXX)
 
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
 # ---- Declare internal libraries ----
 
-add_library(
-    cmake_init_lib OBJECT
-    src/lib.cpp
-)
+add_library(cmake_init_lib OBJECT src/lib.cpp)
 
 target_include_directories(
-    cmake_init_lib ${warning_guard}
-    PUBLIC
-    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>"
-)
+  cmake_init_lib ${warning_guard}
+  PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>")
 
 target_compile_features(cmake_init_lib PUBLIC cxx_std_17)
 
@@ -56,9 +50,7 @@ if(NOT cmake_init_DEVELOPER_MODE)
   return()
 elseif(NOT PROJECT_IS_TOP_LEVEL)
   message(
-      AUTHOR_WARNING
-      "Developer mode is intended for developers of cmake_init"
-  )
+    AUTHOR_WARNING "Developer mode is intended for developers of cmake_init")
 endif()
 
 include(cmake/dev-mode.cmake)
