@@ -1,12 +1,15 @@
-#include <iostream>
-#include <string>
-
-#include "lib.hpp"
+#include <drogon/drogon.h>
 
 auto main() -> int
 {
-  auto const lib = library {};
-  auto const message = "Hello from " + lib.name + "!";
-  std::cout << message << '\n';
-  return 0;
+  const auto http_port = 80;
+  const auto num_threads = 16;
+
+  drogon::app()
+      .setLogPath("./")
+      .setLogLevel(trantor::Logger::kWarn)
+      .addListener("0.0.0.0", http_port)
+      .setThreadNum(num_threads)
+      .enableRunAsDaemon()
+      .run();
 }
